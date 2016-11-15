@@ -1,0 +1,38 @@
+#current-toggle(div='all-programs')
+
+.align.main-content
+  #lmenu.ul.align-reset-h
+    #jqmenu
+      !=t.getToogleDivLink('all-programs', 'all-programs')
+      b=t.t('symphonic')
+      !=t.getToogleDivLink('symphonic1', 'symphonic1')
+      !=t.getToogleDivLink('symphonic2', 'symphonic2')
+      !=t.getToogleDivLink('symphonic3', 'symphonic3')
+      b=t.t('sextuor')
+      !=t.getToogleDivLink('sextuor1', 'sextuor1')
+      b=t.t('quintette')
+      !=t.getToogleDivLink('quintette1', 'quintette1')
+      b=t.t('quatuor')
+      !=t.getToogleDivLink('quatuor1', 'quatuor1')
+      !=t.getToogleDivLink('quatuor3', 'quatuor3')
+      b=t.t('trio')
+      !=t.getToogleDivLink('trio1', 'trio1')
+      b=t.t('recital')
+      !=t.getToogleDivLink('recital1', 'recital1')
+
+  .page-content.align
+    .content-box
+      #all-programs
+        !=t.pug('all-programs')
+      #symphonic1.hidden
+        p azdoihaz
+      #symphonic2.hidden
+      #symphonic3.hidden
+        p azdoihaz
+      #sextuor1.hidden
+      #quintette1.hidden
+      #quatuor1.hidden
+        p azdoihaz
+      #quatuor3.hidden
+      #trio1.hidden
+      #recital1.hidden

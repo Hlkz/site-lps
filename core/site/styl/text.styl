@@ -1,0 +1,65 @@
+@import 'var.styl'
+
+placeholder(color)
+  &::-webkit-input-placeholder //WebKit, Blink, Edge
+      color color
+  &:-moz-placeholder // Mozilla Firefox 4 to 18
+     color color
+     opacity 1
+  &::-moz-placeholder // Mozilla Firefox 19+
+     color color
+     opacity 1
+  &:-ms-input-placeholder // Internet Explorer 10-11
+     color color
+
+input, textarea, button, select
+  margin 2px 2px 2px 2px
+  padding 2px
+  border-style none
+input[type=text], input[type=email], input[type=tel], input[type=submit], textarea, button, select
+  outline none
+input[type=submit]
+  padding 6px
+input[type=submit]:hover
+  color $main-color
+.underline
+  border-style solid
+  border-width 0 0 1px 0
+  border-color black
+  
+
+a
+  color $main-color
+  font-weight bold
+  text-decoration none
+  &:hover
+    color #000
+h2
+  font-size 12pt
+  color $main-color
+
+.newsletterform
+  margin-bottom 4px
+.newslettertextinput
+  width 260px
+  background none
+  border-style solid
+  border-width 0 0 2px 0
+  border-color $contrast-color
+  color #fff
+  placeholder(#fff)
+.newlettersubmit
+  margin-left 6px
+  padding 6px
+  background $contrast-color
+  color #fff
+  font-weight bold
+.newlettersubmit:hover
+  color #000
+
+  
+#footbot
+  p
+    color #444
+    font-size 12px
+    text-align right

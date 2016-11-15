@@ -1,0 +1,10 @@
+
+.align.main-content
+  #lmenu.ul.align-reset-h
+    li: !=t.getPageLink('actions')
+    li: !=t.getPageLink('actions1')
+    li: !=t.getPageLink('actions2')
+
+  .page-content.align
+    .content-box
+      !=t.pug('actions2')

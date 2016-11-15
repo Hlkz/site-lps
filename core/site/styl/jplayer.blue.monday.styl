@@ -1,0 +1,460 @@
+
+@import 'var.styl'
+
+@font-face
+  font-family 'jplayer05'
+  src url('/data/font/jplayer05.ttf')
+
+@font-face
+  font-family 'jplayer-default'
+  src url('/data/font/jplayer-default.ttf')
+
+.jp-audio *:focus,
+.jp-audio-stream *:focus,
+.jp-video *:focus
+  outline none
+
+.jp-audio button::-moz-focus-inner,
+.jp-audio-stream button::-moz-focus-inner,
+.jp-video button::-moz-focus-inner
+  border 0
+
+.jp-audio,
+.jp-audio-stream,
+.jp-video
+  font-size 16px
+  text-align left
+  font-family 'Roboto', 'Helvetica','Arial', sans-serif
+  line-height 1.6
+  color $main-font
+  border 1px solid #000
+  border-radius 10px
+  padding 2px 10px 4px 10px
+  background-color $main-color
+
+.jp-audio
+  //width 420px
+  .jp-interface
+    height 60px
+  .jp-controls
+    //width 380px
+    padding 20px 20px 0 20px
+  .jp-progress
+    height 15px
+  .jp-type-single
+    .jp-progress
+      width 186px
+    .jp-time-holder
+      left 110px
+      width 186px
+    .jp-toggles
+      width 25px
+  .jp-type-playlist
+    .jp-progress
+      width 130px
+    .jp-time-holder
+      width 130px
+    .jp-toggles
+      width 55px
+      margin 0
+
+.jp-audio-stream
+  width 182px
+  .jp-interface
+    height 80px
+  .jp-controls
+    position absolute
+    top 20px
+    left 20px
+    width 142px
+  .jp-volume-controls
+    left 70px
+
+.jp-interface
+  display flex
+  align-items center
+  position relative
+  width 100%
+  .jp-controls
+    margin 0
+    padding 0
+    overflow hidden
+
+.jp-controls-holder
+  clear both
+  width 440px
+  margin 0 auto
+  position relative
+  overflow hidden
+  top -8px
+
+.jp-controls
+  display flex
+  align-items center
+  button
+    display block
+    cursor pointer
+
+.jp-play, .jp-stop, .jp-previous, .jp-next
+  font-family 'jplayer05'
+.jp-mute, .jp-volume-max
+  font-family 'jplayer-default'
+
+.jp-play, .jp-stop, .jp-previous, .jp-next, .jp-mute, .jp-volume-max
+  padding 6px
+  margin 2px
+  color $main-color
+  background $contrast-font
+  border 1px solid $contrast-color
+  border-radius 3px
+  &:hover
+    color $contrast-font
+    background $main-color
+
+.jp-play
+  font-size 12pt
+  &:focus
+  &:after
+    content 'b'
+
+.jp-stop, .jp-previous, .jp-next, .jp-mute, .jp-volume-max
+  font-size 10pt
+
+.jp-state-playing
+  .jp-play
+    &:focus
+    &:after
+      content 'a'
+
+
+.jp-stop
+  background url("/data/img/jplayer/jplayer.blue.monday.jpg") 0 -83px no-repeat
+  margin-left 10px
+  &:focus
+    background url("/data/img/jplayer/jplayer.blue.monday.jpg") -29px -83px no-repeat
+
+.jp-previous
+  &:focus
+  &:after
+    content 'c'
+
+.jp-next
+  &:focus
+  &:after
+    content 'e'
+
+.jp-in-progress
+  margin 5px
+
+.jp-progress
+  overflow hidden
+  border 1px solid $contrast-color
+  background-color $main-color
+
+.jp-seek-bar
+  background $main-color
+  width 0px
+  height 100%
+  cursor pointer
+
+.jp-play-bar
+  background $contrast-color
+  width 0px
+  height 100%
+
+.jp-seeking-bg
+  background url("/data/img/jplayer/jplayer.blue.monday.seeking.gif")
+
+.jp-state-no-volume
+  .jp-volume-controls
+    display none
+
+.jp-volume-controls
+  button
+    display block
+    cursor pointer
+
+.jp-volume-max
+  &:after
+    content 'v'
+
+.jp-mute
+  &:after
+    content 'M'
+
+.jp-state-muted
+  .jp-mute
+    &:after
+      content 'm'
+
+.jp-volume-bar
+  border 1px solid $contrast-color
+  background-color $main-color
+  margin-left 2px
+  width 70px
+  height 10px
+  cursor pointer
+
+.jp-volume-bar-value
+  background $contrast-color
+  width 0px
+  height 8px
+
+.jp-current-time,
+.jp-duration
+  width 60px
+  font-size .64em
+
+.jp-current-time
+  float left
+  display inline
+  cursor default
+
+.jp-duration
+  float right
+  display inline
+  text-align right
+  cursor pointer
+
+.jp-details
+  font-weight bold
+  text-align center
+  cursor default
+  .jp-title
+    margin 0
+    padding 5px 20px
+    font-size .72em
+    font-weight bold
+
+.jp-details,
+.jp-playlist
+  width 100%
+
+.jp-type-single .jp-details,
+.jp-type-playlist .jp-details
+  border-top none
+
+.jp-playlist
+  ul
+    list-style-type none
+    margin 0
+    font-size .72em
+  li
+    border-top 1px solid #000
+    div
+      display inline
+
+div
+  &.jp-type-playlist
+    div
+      &.jp-playlist
+        li
+          &:last-child
+          &.jp-playlist-current
+            list-style-position inside
+          &>div
+            display flex
+            width 100%
+        a
+          flex 1
+          padding-left 6px
+          color $main-font
+          text-decoration none
+          &:hover
+            background $contrast-font
+            color $main-color
+          &.jp-playlist-current
+            color $main-color
+            background $contrast-font
+          &.jp-playlist-item-remove
+            float right
+            display inline
+            text-align right
+            margin-right 10px
+            color #666
+            &:hover
+              color #0d88c1
+        span
+          &.jp-free-media
+            float right
+            display inline
+            text-align right
+            margin-right 10px
+            a
+              color #666
+              &:hover
+                color #0d88c1
+
+span
+  &.jp-artist
+    font-size .8em
+    color #666
+
+.jp-video
+  .jp-interface
+    border-top 1px solid #009be3
+  .jp-type-single
+    .jp-controls
+      width 78px
+      margin-left 200px
+  .jp-type-playlist
+    .jp-controls
+      width 134px
+      margin-left 172px
+  .jp-controls
+    float left
+  .jp-progress
+    top 0px
+    left 0px
+    width 100%
+    height 10px
+  .jp-volume-controls
+    top 12px
+    left 50px
+  .jp-current-time
+    margin-left 20px
+  .jp-duration
+    margin-right 20px
+  .jp-toggles
+    position absolute
+    right 16px
+    margin 0
+    margin-top 10px
+    width 100px
+
+.jp-video-270p
+  width 480px
+  .jp-video-play
+    margin-top -270px
+    height 270px
+
+.jp-video-360p
+  width 640px
+  .jp-video-play
+    margin-top -360px
+    height 360px
+
+.jp-video-full
+  width 480px
+  height 270px
+  position static !important
+  position relative
+  div
+    div
+      z-index 1000
+  .jp-jplayer
+    top 0
+    left 0
+    position fixed !important
+    position relative
+    overflow hidden
+  .jp-gui
+    position fixed !important
+    position static
+    top 0
+    left 0
+    width 100%
+    height 100%
+    z-index 1001
+  .jp-interface
+    position absolute !important
+    position relative
+    bottom 0
+    left 0
+  .jp-video-play
+    height 100%
+
+.jp-video-play
+  width 100%
+  overflow hidden
+  cursor pointer
+  background-color transparent
+
+.jp-video-play-icon
+  position relative
+  display block
+  width 112px
+  height 100px
+  margin-left -56px
+  margin-top -50px
+  left 50%
+  top 50%
+  background url("/data/img/jplayer/jplayer.blue.monday.video.play.png") 0 0 no-repeat
+  text-indent -9999px
+  border none
+  cursor pointer
+  &:focus
+    background url("/data/img/jplayer/jplayer.blue.monday.video.play.png") 0 -100px no-repeat
+
+.jp-jplayer audio,
+.jp-jplayer
+  width 0px
+  height 0px
+
+.jp-jplayer
+  background-color #000000
+
+.jp-toggles
+  padding 0
+  margin 0 auto
+  overflow hidden
+  button
+    display block
+    float left
+    width 25px
+    height 18px
+    text-indent -9999px
+    line-height 100%
+    border none
+    cursor pointer
+
+.jp-full-screen
+  background url("/data/img/jplayer/jplayer.blue.monday.jpg") 0 -310px no-repeat
+  margin-left 20px
+  &:focus
+    background url("/data/img/jplayer/jplayer.blue.monday.jpg") -30px -310px no-repeat
+
+.jp-state-full-screen
+  .jp-full-screen
+    background url("/data/img/jplayer/jplayer.blue.monday.jpg") -60px -310px no-repeat
+    &:focus
+      background url("/data/img/jplayer/jplayer.blue.monday.jpg") -90px -310px no-repeat
+
+.jp-repeat
+  background url("/data/img/jplayer/jplayer.blue.monday.jpg") 0 -290px no-repeat
+  &:focus
+    background url("/data/img/jplayer/jplayer.blue.monday.jpg") -30px -290px no-repeat
+
+.jp-state-looped
+  .jp-repeat
+    background url("/data/img/jplayer/jplayer.blue.monday.jpg") -60px -290px no-repeat
+    &:focus
+      background url("/data/img/jplayer/jplayer.blue.monday.jpg") -90px -290px no-repeat
+
+.jp-shuffle
+  background url("/data/img/jplayer/jplayer.blue.monday.jpg") 0 -270px no-repeat
+  margin-left 5px
+  &:focus
+    background url("/data/img/jplayer/jplayer.blue.monday.jpg") -30px -270px no-repeat
+
+.jp-state-shuffled
+  .jp-shuffle
+    background url("/data/img/jplayer/jplayer.blue.monday.jpg") -60px -270px no-repeat
+    &:focus
+      background url("/data/img/jplayer/jplayer.blue.monday.jpg") -90px -270px no-repeat
+
+.jp-no-solution
+  padding 5px
+  font-size .8em
+  background-color #eee
+  border 2px solid #009be3
+  color #000
+  display none
+  a
+    color #000
+  span
+    font-size 1em
+    display block
+    text-align center
+    font-weight bold
+

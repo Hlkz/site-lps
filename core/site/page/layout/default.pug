@@ -1,0 +1,86 @@
+doctype html
+html
+  head
+    script(src='https://unpkg.com/jquery@3.1.0/dist/jquery.min.js')
+    //script(src='https://unpkg.com/react@15.3.0/dist/react.js')
+    //script(src='https://unpkg.com/react-dom@15.3.0/dist/react-dom.js')
+    //script(src='https://unpkg.com/babel-standalone@6.15.0/babel.min.js')
+    //script(src='https://unpkg.com/remarkable@1.6.2/dist/remarkable.min.js')
+
+    link(rel='stylesheet', href='/data/build/css/general.min.css')
+    link(rel='stylesheet', href='/data/build/css/base.min.css')
+    link(rel='stylesheet', href='/data/build/css/text.min.css')
+    script(src='/data/build/js/script.min.js')
+
+    link(rel='stylesheet', href='/data/build/css/jplayer.blue.monday.min.css')
+    script(src='/data/build/js/jquery.jplayer.min.js')
+    script(src='/data/build/js/jplayer.playlist.min.js')
+
+    title !{title}
+  body
+
+    a(href='/')
+      img.header.loadpage(src='/data/img/header.jpg', page-path='/')
+
+    ul.nav
+      each menulink in menulinks
+        !=t.getPageLink(menulink)
+
+    - var loadPage = (content ? 'false' : 'true')
+    #page(current=current, loadPage=loadPage)
+      - if (content)
+        !=content
+
+    #footer
+      #footer-content.align
+        #footer-content-left
+            //div(id=cincopa) ...
+            //script(type='text/javascript', src='/data/js/musicplayer.js')
+            #jquery_jplayer_1.jp-jplayer
+            #jp_container_1.jp-audio(role='application', aria-label='media player')
+              .jp-type-playlist
+                .jp-gui.jp-interface
+                  .jp-controls
+                    button.jp-previous(role='button', tabindex='0')
+                    button.jp-play(role='button', tabindex='0')
+                    button.jp-next(role='button', tabindex='0')
+                  .jp-in-progress
+                    .jp-progress
+                      .jp-seek-bar
+                        .jp-play-bar
+                    .jp-time-holder
+                      .jp-current-time(role='timer', aria-label='time')  
+                      .jp-duration(role='timer', aria-label='duration')  
+                  .jp-volume-controls
+                    button.jp-mute(role='button', tabindex='0')
+                    //button.jp-volume-max(role='button', tabindex='0')
+                  .jp-volume-bar
+                    .jp-volume-bar-value
+                .jp-playlist
+                  ul
+                    li  
+                .jp-no-solution
+                  span Update Required
+                  |       To play the media you will need to either update your browser to a recent version or update your 
+                  a(href='http://get.adobe.com/flashplayer/', target='_blank') Flash plugin
+                  | .
+        #footer-content-right
+          form.align-v.newsletterform(method='post', action='/Inscription-Newsletter', onsubmit='return SubmitForm(this)')
+            .align-reset-l
+              b Newsletter de La Petite Symphonie
+            .align-reset-l
+              input.newslettertextinput(type='text', name='newsletter_name', placeholder="Saisir votre e-mail")
+              input.newlettersubmit(type='submit', name='newsletter_submit', value="S'inscrire")
+          .align-v
+              a(href='https://fr-fr.facebook.com/lapetitesymphonie', target='_blank')
+                img(src='/data/img/logo/facebook.png', width='50px')
+              a(href='https://www.youtube.com/channel/UCuyhbW3_crRji7AoBBq1dNw/videos', target='_blank')
+                img(src='/data/img/logo/youtube.png', width='90px')
+              a(href='http://www.hautenormandie.fr/', target='_blank')
+                img(src='/data/img/logo/logo_region.jpg', width='50' style='margin-right:11px')
+              a(href='http://www.seinemaritime.net/', target='_blank')
+                img(src='/data/img/logo/logo_departement.jpg', width='60')
+    #footbot
+      p Copyright © 2016 Hlkz
+
+    script(src='/data/build/js/jplayer1.min.js')

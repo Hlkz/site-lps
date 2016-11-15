@@ -1,0 +1,136 @@
+@import 'var.styl'
+
+html
+  height 100%
+body
+  font-family 'Calibri light', 'Tahoma', Arial, sans-serif
+  height 100%
+  display flex
+  min-height 100%
+  flex-direction column
+
+.header
+  display block
+  margin 0 auto
+  width 80%
+  min-width $minwidth
+  max-width 1300px
+
+.indexheader
+  display block
+  margin 0 auto
+  width 90%
+
+.nav
+  min-width $minwidth
+  background $main-color
+  text-align center
+  li
+    display inline-block
+  a
+    display inline-block
+    padding 4px 20px
+    color #fff
+    font-size 18px
+
+.main-content
+  min-width $minwidth
+  margin-top 12px
+  // max-width 600px
+
+#lmenu
+  width 250px
+  padding-right 8px
+  font-size 11pt
+  li
+    padding-right 8px
+    text-align right
+    display block
+    margin-top 6px
+    margin-bottom 6px
+.lmenu-sub
+  margin-top 35px
+  font-size 10pt
+  line-height 18px
+  text-align justify
+
+.page-content
+.page-content-m
+  width 940px
+  padding 12px 8px 8px 8px
+.page-content-m
+  width 720px
+
+#rmenu
+  width 250px
+  padding-left 8px
+
+.content-box
+  padding 12px
+  background #f5f5dc
+  text-align justify
+
+#footer
+  width 100%
+  min-width $minwidth
+  min-height 170px
+  max-height 170px // 164
+  text-align center
+  margin 50px auto 0px auto
+  background-color $main-color
+  overflow hidden
+#footer-content
+  margin 0px auto
+#footer-content-left
+  margin-right 12px
+  padding 10px
+  max-width 550px
+#footer-content-right
+  margin-left 12px
+  padding 10px
+  width 360px
+
+#footbot
+  margin 0px auto
+  width 600px
+  max-width 600px
+  padding 20px 0
+  //border-top 1px solid #444
+
+// Pages
+
+.txtoverimg
+  z-index 100
+  position absolute   
+  top 120px 
+  left 453px
+  color white
+  font-size 15pt
+  text-align center
+
+.diskdiv
+  margin-bottom 24px
+  width 100%
+  min-height 50px
+  display flex
+  display -webkit-flex
+  flex-direction row
+  -webkit-flex-direction row
+  -webkit-align-content stretch
+  align-content stretch
+.disktext
+  -webkit-flex 1
+  flex 1
+  position relative
+
+.diskdisk
+  width 350px
+  min-height 350px
+
+.adhesion
+  table
+    border-style solid
+    border-collapse collapse
+  th, td
+    padding 8px 8px 8px 12px
+    text-align left

@@ -1,0 +1,11 @@
+
+.align.main-content
+  #lmenu.ul.align-reset-h
+    li: !=t.getPageLink('actions')
+    li: !=t.getPageLink('actions1')
+    li: !=t.getPageLink('actions2')
+
+  .page-content.align
+    .content-box
+      !=t.pug('actions')
+    img.align-reset-h.ml(src='/data/img/pages/actionsculturelles.jpg', width='400px')

@@ -1,0 +1,14 @@
+
+.align.main-content
+  #lmenu.ul.align-reset-h
+    li: !=t.getPageLink('lps')
+    li: !=t.getPageLink('lpsdaniel')
+    li: !=t.getPageLink('lpsmusiciens')
+
+    .lmenu-sub
+      !=t.pug('lpsdaniel-quote')
+
+  .page-content.align
+    .content-box
+      !=t.pug('lpsdaniel')
+    img.align-reset-h.ml(src='/data/img/pages/lpsdaniel.jpg', width='380px')

@@ -1,0 +1,12 @@
+
+.align.main-content
+  #lmenu.ul.align-reset-h
+    li: !=t.getPageLink('lps')
+    li: !=t.getPageLink('lpsdaniel')
+    li: !=t.getPageLink('lpsmusiciens')
+
+  .page-content.align-v
+    .mb.w100
+      img.hCenterImg(src='/data/img/pages/lpsmusiciens.jpg')
+    .content-box
+      !=t.pug('lpsmusiciens')

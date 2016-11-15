@@ -1,0 +1,7 @@
+/node_modules/*
+/bin/*
+/data/*
+/build/*
+/core/njb/script/*
+/core/site/apps/*
+/core/site/script/*
