@@ -1,5 +1,5 @@
-import common from '../../common'
-import email from '../../email'
+import common from '../../njb/common'
+import email from '../../njb/email'
 
 function PreLoad(req, res, isContent) { return new Promise((resolve, reject) => {
   let post = req.body

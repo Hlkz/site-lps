@@ -1,4 +1,4 @@
-import common from '../../common'
+import common from '../../njb/common'
 
 function PreLoad(req, res, isContent) { return new Promise((resolve, reject) => {
   if (!isContent) {
