@@ -20,31 +20,32 @@ function PreLoad(req, res, isContent) { return new Promise((resolve, reject) => 
         '<br>          '+post.adhesion_address2+
         '<br>Email : '+post.adhesion_mail+
         '<br>Téléphone : '+post.adhesion_phone+
-        '<br>Membre : '+((post.adhesion_member==1) ? 'actif' :
-                                ((post.adhesion_member==2) ? 'bienfaiteur' :
-                                ((post.adhesion_member==3) ? 'autre':'Aucune case cochée' )) )+
+        '<br>Membre : '+((post.adhesion_member==1) ? 'actif (15€)' :
+                        ((post.adhesion_member==2) ? 'bienfaiteur (50€)' :
+                        ((post.adhesion_member==3) ? 'autre':'Aucune case cochée' )) )+
         (post.adhesion_member==3 ? ('<br>Don personnalisé : '+post.adhesion_donation) : '')+
         '<br>Reçu fiscal : '+((post.adhesion_fiscal)?'oui':'non')+
         '<br>'+
       '</body>'+
       '</html>';
-      //console.log(mailHtml)
 
       let esc = common.mysql_real_escape_string
       let db = req.app.get('database')
       let query = 'INSERT INTO '+db.prefix+'adhesions (name, address, address2, mail, phone, memberType, donation, fiscal) '+
         'VALUES (\''+esc(post.adhesion_name)+'\', \''+esc(post.adhesion_address)+'\', \''+esc(post.adhesion_address2)+'\', \''+esc(post.adhesion_mail)+'\', \''+esc(post.adhesion_phone)+'\', '+
         '\''+post.adhesion_member+'\', \''+post.adhesion_donation+'\', \''+post.adhesion_fiscal+'\')'
+
       db.query(query, function(err) {
-      	if (err) {
+        if (err) {
           common.mysql_error(err)
           res.setForm(1)
         }
-        else
+        else {
           res.setForm(0)
+          email.sendHtml(mailTo, mailSubject, mailHtml)
+        }
         resolve()
       })
-      email.sendHtml(mailTo, mailSubject, mailHtml).then(null, common.error)
     }
     else {
       res.setForm(1)
