@@ -6,6 +6,7 @@ function PreLoad(req, res, isContent) { return new Promise((resolve, reject) => 
   if (post && post.adhesion_submit) {
     res.setPost()
     if (true) { //(post.adhesion_name && post.adhesion_address && post.adhesion_mail && post.adhesion_member > 0 && (post.adhesion_donation || post.adhesion_member != 3)) {
+      post.adhesion_donation = (post.adhesion_member==1) ? 15 : (post.adhesion_member==2) ? 50 : post.adhesion_donation
       let mailTo = 'hlkz@hotmail.fr'
       let mailSubject = 'Formulaire d\'adhésion : '+post.adhesion_name
       let mailHtml = ''+
