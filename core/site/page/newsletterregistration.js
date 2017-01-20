@@ -4,7 +4,7 @@ import db from '../../njb/database'
 function PreLoad(req, res, isContent) { return new Promise((resolve, reject) => {
   if (!isContent) {
     res.redirect('/')
-    return resolve()
+    return
   }
 
   common.busform(req, post => {
