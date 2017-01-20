@@ -1,3 +1,4 @@
+import db from '../../../njb/database'
 
 function PreLoad(req, res, isContent) { return new Promise((resolve, reject) => {
   let post = req.body
@@ -5,7 +6,6 @@ function PreLoad(req, res, isContent) { return new Promise((resolve, reject) => 
     if (post.newsletter_name) {
       res.setPost()
       let esc = common.mysql_real_escape_string
-      let db = req.app.get('database')
       let query = 'INSERT IGNORE INTO '+db.prefix+'newsletter_mail (mail) VALUES (\''+esc(post.newsletter_name)+'\')'
       req.app.get('database').query(query, function(err) { if (err) throw err })
       res.viewLocals['form'] = true

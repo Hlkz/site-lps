@@ -1,5 +1,5 @@
-import common from '../../njb/common'
 import email from '../../njb/email'
+import db from '../../njb/database'
 
 function PreLoad(req, res, isContent) { return new Promise((resolve, reject) => {
   let post = req.body
@@ -30,13 +30,9 @@ function PreLoad(req, res, isContent) { return new Promise((resolve, reject) => 
       '</body>'+
       '</html>';
 
-      let esc = common.mysql_real_escape_string
-      let db = req.app.get('database')
-      let query = 'INSERT INTO '+db.prefix+'adhesions (name, address, address2, mail, phone, memberType, donation, fiscal) '+
-        'VALUES (\''+esc(post.adhesion_name)+'\', \''+esc(post.adhesion_address)+'\', \''+esc(post.adhesion_address2)+'\', \''+esc(post.adhesion_mail)+'\', \''+esc(post.adhesion_phone)+'\', '+
-        '\''+post.adhesion_member+'\', \''+post.adhesion_donation+'\', \''+post.adhesion_fiscal+'\')'
-
-      db.query(query, function(err) {
+      db.query('INSERT INTO '+db.prefix+'adhesions (name, address, address2, mail, phone, memberType, donation, fiscal) VALUES (?,?,?,?,?,?,?,?)',
+      	post.adhesion_name, post.adhesion_address, post.adhesion_address2, post.adhesion_mail, post.adhesion_phone, post.adhesion_member, post.adhesion_donation, post.adhesion_fiscal||0,
+      	function(err) {
         if (err) {
           common.mysql_error(err)
           res.setForm(1)
