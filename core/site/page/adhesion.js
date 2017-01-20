@@ -33,10 +33,8 @@ function PreLoad(req, res, isContent) { return new Promise((resolve, reject) => 
       db.query('INSERT INTO '+db.prefix+'adhesions (name, address, address2, mail, phone, memberType, donation, fiscal) VALUES (?,?,?,?,?,?,?,?)',
       	post.adhesion_name, post.adhesion_address, post.adhesion_address2, post.adhesion_mail, post.adhesion_phone, post.adhesion_member, post.adhesion_donation, post.adhesion_fiscal||0,
       	function(err) {
-        if (err) {
-          common.mysql_error(err)
+        if (err)
           res.setForm(1)
-        }
         else {
           res.setForm(0)
           email.sendHtml(mailTo, mailSubject, mailHtml)
