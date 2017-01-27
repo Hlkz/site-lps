@@ -4,7 +4,7 @@ import db from '../../../njb/database'
 function Load(req, res, isContent) { return new Promise((resolve, reject) => {
   let agenda = []
   let locale = req.locale
-  db.query('SELECT id, date, ?? AS text, ?? AS text2, link FROM lps_agenda WHERE date >= CURRENT_DATE() ORDER BY date DESC',
+  db.query('SELECT id, date, ?? AS text, ?? AS text2, link FROM lps_agenda WHERE date >= CURRENT_DATE() ORDER BY date ASC',
     locale.locField('text_en', 'text'), locale.locField('text2_en', 'text2'),
     function(err, rows) {
     if (!err) {
