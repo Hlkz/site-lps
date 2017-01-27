@@ -30,7 +30,7 @@ function PreLoad(req, res, isContent) { return new Promise((resolve, reject) => 
       '</body>'+
       '</html>';
 
-      db.query('INSERT INTO '+db.prefix+'adhesions (name, address, address2, mail, phone, memberType, donation, fiscal) VALUES (?,?,?,?,?,?,?,?)',
+      db.query('INSERT INTO lps_adhesions (name, address, address2, mail, phone, memberType, donation, fiscal) VALUES (?,?,?,?,?,?,?,?)',
       	post.adhesion_name, post.adhesion_address, post.adhesion_address2, post.adhesion_mail, post.adhesion_phone, post.adhesion_member||0, post.adhesion_donation, post.adhesion_fiscal||0,
       	function(err) {
         if (err)

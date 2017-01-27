@@ -12,7 +12,7 @@ function PreLoad(req, res, isContent) { return new Promise((resolve, reject) => 
       res.setPost()
       if (post.newsletter_name) {
         let esc = common.mysql_real_escape_string
-        let query = 'INSERT IGNORE INTO '+db.prefix+'newsletter_mail (mail) VALUES (\''+esc(post.newsletter_name)+'\')'
+        let query = 'INSERT IGNORE INTO lps_newsletter_mail (mail) VALUES (\''+esc(post.newsletter_name)+'\')'
         db.query(query, function(err) { if (err) throw err })
         res.setForm(0)
       }
