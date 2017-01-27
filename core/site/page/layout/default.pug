@@ -6,6 +6,7 @@ html
     //script(src='https://unpkg.com/react-dom@15.3.0/dist/react-dom.js')
     //script(src='https://unpkg.com/babel-standalone@6.15.0/babel.min.js')
     //script(src='https://unpkg.com/remarkable@1.6.2/dist/remarkable.min.js')
+    script(src='/data/lib/native.history.js')
 
     link(rel='stylesheet', href='/data/build/css/general.min.css')
     link(rel='stylesheet', href='/data/build/css/base.min.css')
@@ -84,5 +85,10 @@ html
                   img(src='/data/img/logo/logo_departement.jpg', width='60')
       #footbot
         p Copyright © 2016 Hlkz
+
+      - if (admin)
+        form(action='Admin', method='post')
+          p Connecté en tant qu'administrateur
+          button(name='adminDeco', value='y', type='submit') Déconnexion
 
       script(src='/data/build/js/jplayer1.min.js')
