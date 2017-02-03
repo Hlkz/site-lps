@@ -26,7 +26,7 @@ let pug = `
     p Vous êtes authentifié en tant qu'administrateur.
     a(href='admin/agenda') Gérer l'agenda
     a(href='admin/locale_t') Traductions (mots)
-    a(href='admin/locale_pug') Traductions (texte, jade)
+    a(href='admin/locale_jade') Traductions (texte, jade)
   - else
     p Vous n'êtes actuellement pas authentifié en tant qu'administrateur.
     form(action='', method='post')

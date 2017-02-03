@@ -1,5 +1,6 @@
 import common from '../../../njb/common'
 import db from '../../../njb/database'
+import locale from '../../../njb/locale'
 
 let table_njb_t = {
   database: 'lps',
@@ -28,6 +29,7 @@ function Load(req, res, isContent) { return new Promise((resolve, reject) => {
     db.deleteFrom(table_njb_t, row, function(err) {
       if (!err) {
         db.insert(table_njb_t, row, function(err) {
+          locale.loadContent(row.page, true).then(() => {})
           if (!err)
             res.redirect(req.headers.referer)
         })
@@ -40,8 +42,10 @@ function Load(req, res, isContent) { return new Promise((resolve, reject) => {
       name: get.delete_locale_name
     }
     db.deleteFrom(table_njb_t, row, function(err) {
-      if (!err)
+      if (!err) {
+       locale.loadContent(row.page, true).then(() => {})
         res.redirect(req.headers.referer)
+      }
     })
   }
   else {
