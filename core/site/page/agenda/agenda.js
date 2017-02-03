@@ -55,7 +55,7 @@ style.
               !=event.text2
             - if (event.link != '')
               br
-              !=t.getLink(event.link, 'organizer-website')
+              !=t.getLink(event.link, 'organizer-website', true)
           br
           !=t.getToggleDivLink('agenda-toggle-'+event.id, 'readmore', 'reduce')
 `
