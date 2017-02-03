@@ -36,7 +36,7 @@ function Load(req, res, isContent) { return new Promise((resolve, reject) => {
       }
     })
   }
-  else if (get && get.delete_locale_page && get.delete_locale_name) {
+  else if (get && (get.delete_locale_page || get.delete_locale_name)) {
     let row = {
       page: get.delete_locale_page,
       name: get.delete_locale_name
@@ -44,14 +44,14 @@ function Load(req, res, isContent) { return new Promise((resolve, reject) => {
     db.deleteFrom(table_njb_t, row, function(err) {
       if (!err) {
        locale.loadContent(row.page, true).then(() => {})
-        res.redirect(req.headers.referer)
+        res.redirect('/admin/locale_t')
       }
     })
   }
   else {
-    db.query('SELECT DISTINCT page FROM njb_locale_t', function(err, rows) {
+    db.query('SELECT DISTINCT pages.name, pages.fr FROM njb_pages as pages, njb_locale_t as loc WHERE pages.name = loc.page', function(err, rows) {
       if (!err) {
-        res.setData('allnames', rows.map(row=>row.page))
+        res.setData('allpages', rows.map(row => { return { name: row.name, fr: row.fr } }))
         let page = (get && get.page) ? get.page : ''
         let table = []
         db.query('SELECT page, name, fr, en FROM njb_locale_t WHERE page = ? ORDER BY page, name', page, function(err, rows) {
@@ -76,10 +76,11 @@ function Load(req, res, isContent) { return new Promise((resolve, reject) => {
 let pug = `
 
 .align.main-content
-  #lmenu.ul.align-reset-h
-    each name in allnames
-      li: a(href='?page='+name)
-        !='=> '+name
+  #lmenu-big.ul.align-reset-h
+    li: a(href='/admin/locale_t') Général
+    each page in allpages
+      li: a(href='/admin/locale_t?page='+page.name)
+        !=page.fr+' => '+page.name
 
   .page-content
     each item in table
@@ -90,17 +91,14 @@ let pug = `
           span name
           input.border(type='text', name='locale_name', size='35', value=item.name)
         div
-          p fr
-          textarea.border(name='locale_fr', rows='7', style='width:50%')
-            !=item.fr
-          p en
-          textarea.border(name='locale_en', rows='7', style='width:50%')
-            !=item.en
+          span fr
+          input.border(type='text', name='locale_fr', size='64', value=item.fr)
+        div
+          span en
+          input.border(type='text', name='locale_en', size='64', value=item.en)
 
         input(type='submit', name='locale_submit', value='Sauvegarder')
-        a(href='locales?delete_locale_page='+item.page+'&delete_locale_name='+item.name)  Delete
-        br
-        br
+        a(href='/admin/locale_t?delete_locale_page='+item.page+'&delete_locale_name='+item.name)  Delete
         br
         br
     br
@@ -112,10 +110,11 @@ let pug = `
         span name
         input.border(type='text', name='locale_name', size='35')
       div
-        p fr
-        textarea.border(name='locale_fr', rows='7', style='width:50%')
-        p en
-        textarea.border(name='locale_en', rows='7', style='width:50%')
+        span fr
+        input.border(type='text', name='locale_fr', size='64')
+      div
+        span en
+        input.border(type='text', name='locale_en', size='64')
 
       input(type='submit', name='locale_submit', value='Sauvegarder')
 `

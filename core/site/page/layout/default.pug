@@ -27,6 +27,8 @@ html
       ul.nav
         each menulink in menulinks
           !=t.getPageLink(menulink)
+        if (admin)
+          !=t.getPageLink('admin')
 
       - var loadPage = (content ? 'false' : 'true')
       #page(current=current, loadPage=loadPage)
