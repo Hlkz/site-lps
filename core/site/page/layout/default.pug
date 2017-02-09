@@ -70,11 +70,11 @@ html
                     a(href='http://get.adobe.com/flashplayer/', target='_blank') Flash plugin
                     | .
           #footer-content-right
-            form.align-v.newsletterform(method='post', action='/Inscription-Newsletter', onsubmit='return SubmitForm(this)')
+            form.align-v.newsletterform(method='post', action='/Newsletter', onsubmit='return SubmitForm(this)')
               .align-reset-l
                 b Newsletter de La Petite Symphonie
               .align-reset-l
-                input.newslettertextinput(type='text', name='newsletter_name', placeholder="Saisir votre e-mail")
+                input.newslettertextinput(type='text', name='newsletter_suscribe', placeholder="Saisir votre e-mail")
                 input.newlettersubmit(type='submit', name='newsletter_submit', value="S'inscrire")
             .align-v
                 a(href='https://fr-fr.facebook.com/lapetitesymphonie', target='_blank')

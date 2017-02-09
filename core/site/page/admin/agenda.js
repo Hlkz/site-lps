@@ -1,6 +1,6 @@
 import db from '../../../njb/database'
 
-function PreLoad(req, res, isContent) { return new Promise((resolve, reject) => {
+function Load(req, res, isContent) { return new Promise((resolve, reject) => {
   if (!req.session.admin) {
     res.status(404).end()
     return
@@ -81,6 +81,6 @@ let pug = `
 `
 
 module.exports = {
-  PreLoad,
+  Load,
   pug,
 }

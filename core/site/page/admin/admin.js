@@ -1,7 +1,7 @@
 import { CorePath } from '../../../njb/path'
 let config = require(CorePath+'/site/config/config.json')
 
-function PreLoad(req, res, isContent) { return new Promise((resolve, reject) => {
+function Load(req, res, isContent) { return new Promise((resolve, reject) => {
   if (req.body.adminDeco) {
     req.session.admin = false
     res.redirect(req.headers.referer)
@@ -37,6 +37,6 @@ let pug = `
 `
 
 module.exports = {
-  PreLoad,
+  Load,
   pug,
 }

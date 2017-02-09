@@ -1,6 +1,6 @@
 import db from '../../../njb/database'
 
-function PreLoad(req, res, isContent) { return new Promise((resolve, reject) => {
+function Load(req, res, isContent) { return new Promise((resolve, reject) => {
   let post = req.body
   if (post && post.newsletter_submit) {
     if (post.newsletter_name) {
@@ -35,6 +35,6 @@ let pug = `
 `
 
 module.exports = {
-  PreLoad,
+  Load,
   pug,
 }

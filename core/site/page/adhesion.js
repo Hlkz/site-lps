@@ -1,9 +1,10 @@
 import email from '../../njb/email'
 import db from '../../njb/database'
 
-function PreLoad(req, res, isContent) { return new Promise((resolve, reject) => {
+function Load(req, res, isContent) { return new Promise((resolve, reject) => {
   let post = req.body
-  if (post && post.adhesion_submit) {
+
+  if (post.adhesion_submit) {
     res.setPost()
     if (true) { //(post.adhesion_name && post.adhesion_address && post.adhesion_mail && post.adhesion_member > 0 && (post.adhesion_donation || post.adhesion_member != 3)) {
       post.adhesion_donation = (post.adhesion_member==1) ? 15 : (post.adhesion_member==2) ? 50 : post.adhesion_donation
@@ -107,8 +108,7 @@ let pug = `
       !=t.pug('law')
     - else if (!form)
       center
-        | Votre formulaire d'adhésion a bien été enregistré.
-        br
+        p Votre formulaire d'adhésion a bien été enregistré.
         br
         form(action='https://www.paypal.com/cgi-bin/webscr', method='post', target='_blank')
           input(type='hidden', name='cmd', value='_s-xclick')
@@ -121,6 +121,6 @@ let pug = `
 `
 
 module.exports = {
-  PreLoad,
+  Load,
   pug,
 }
