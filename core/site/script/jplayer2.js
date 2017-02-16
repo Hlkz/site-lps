@@ -2,8 +2,8 @@ var jPlayerPlaylists = jPlayerPlaylists || []
 
 jPlayerPlaylists.push({
   cssSelector: {
-    jPlayer: "#jquery_jplayer_1",
-    cssSelectorAncestor: "#jp_container_1"
+    jPlayer: "#jquery_jplayer_2",
+    cssSelectorAncestor: "#jp_container_2"
   },
   playlist: [
     {
@@ -15,8 +15,8 @@ jPlayerPlaylists.push({
       mp3:"/data/mp3/QuatuorPianoforteK.493,Larghetto.mp3"
     },
     {
-      title:"Mozart, concerto n° 27 K.595, Vivace",
-      mp3:"/data/mp3/MozartConcertoSib3eMvt.mp3"
+      title:"Mozart, quatuor avec pianoforte K.493, Finale",
+      mp3:"/data/mp3/QuatuorPianoforteK.493,Finale.mp3"
     }
   ],
   options: {

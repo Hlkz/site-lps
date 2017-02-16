@@ -1,44 +1,94 @@
+style.
+  .jp-audio {
+    width: 300px;
+  }
 
 .align.main-content
+  #lmenu.ul.align-reset-h
+    li: !=t.getPageLink('discography')
+    li: !=t.getLink('https://www.youtube.com/channel/UCuyhbW3_crRji7AoBBq1dNw', 'title-youtube', true)
+
   .page-content
     .diskdiv
       .disktext.content-box
         !=t.pug('muso')
       .diskdisk
-        img.align-reset-h.ml(src='/data/img/pages/Quartets_Mozart_La_Petite_Symphonie.png', width='300px')
+        img.align-reset-h(src='/data/img/pages/Quartets_Mozart_La_Petite_Symphonie.png', width='300px')
+        #jquery_jplayer_2.jp-jplayer
+        #jp_container_2.jp-audio(role='application', aria-label='media player')
+          .jp-type-playlist
+            .jp-gui.jp-interface
+              .jp-controls
+                button.jp-play(role='button', tabindex='0')
+              .jp-in-progress
+                .jp-progress
+                  .jp-seek-bar
+                    .jp-play-bar
+                .jp-time-holder
+                  .jp-current-time(role='timer', aria-label='time')  
+                  .jp-duration(role='timer', aria-label='duration')  
+            .jp-playlist
+              ul
+                li  
+            .jp-no-solution
+              span Update Required
+              |       To play the media you will need to either update your browser to a recent version or update your 
+              a(href='http://get.adobe.com/flashplayer/', target='_blank') Flash plugin
+              | .
     .diskdiv
       .disktext
         .content-box
           !=t.pug('agogique')
       .diskdisk
-        img.align-reset-h.ml(src='/data/img/pages/agogique.jpg', width='300px')
+        img.align-reset-h(src='/data/img/pages/agogique.jpg', width='300px')
+        #jquery_jplayer_3.jp-jplayer
+        #jp_container_3.jp-audio(role='application', aria-label='media player')
+          .jp-type-playlist
+            .jp-gui.jp-interface
+              .jp-controls
+                button.jp-play(role='button', tabindex='0')
+              .jp-in-progress
+                .jp-progress
+                  .jp-seek-bar
+                    .jp-play-bar
+                .jp-time-holder
+                  .jp-current-time(role='timer', aria-label='time')  
+                  .jp-duration(role='timer', aria-label='duration')  
+            .jp-playlist
+              ul
+                li  
+            .jp-no-solution
+              span Update Required
+              |       To play the media you will need to either update your browser to a recent version or update your 
+              a(href='http://get.adobe.com/flashplayer/', target='_blank') Flash plugin
+              | .
     .diskdiv
       .disktext
         .content-box
           !=t.pug('minoriten')
       .diskdisk
-        img.align-reset-h.ml(src='/data/img/pages/minoriten.jpg', width='300px')
+        img.align-reset-h(src='/data/img/pages/minoriten.jpg', width='300px')
     .diskdiv
       .disktext
         .content-box
           !=t.pug('nadaud')
       .diskdisk
-        img.align-reset-h.ml(src='/data/img/pages/nadaud.jpg', width='300px')
+        img.align-reset-h(src='/data/img/pages/nadaud.jpg', width='300px')
     .diskdiv
       .disktext
         .content-box
           !=t.pug('cpebach')
       .diskdisk
-        img.align-reset-h.ml(src='/data/img/pages/cpebach.jpg', width='300px')
+        img.align-reset-h(src='/data/img/pages/cpebach.jpg', width='300px')
     .diskdiv
       .disktext
         .content-box
           !=t.pug('onslow')
       .diskdisk
-        img.align-reset-h.ml(src='/data/img/pages/onslow.jpg', width='300px')
+        img.align-reset-h(src='/data/img/pages/onslow.jpg', width='300px')
     .diskdiv
       .disktext
         .content-box
           !=t.pug('guillemain')
       .diskdisk
-        img.align-reset-h.ml(src='/data/img/pages/guillemain.jpg', width='300px')
+        img.align-reset-h(src='/data/img/pages/guillemain.jpg', width='300px')

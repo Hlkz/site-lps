@@ -27,6 +27,7 @@ html
       ul.nav
         each menulink in menulinks
           !=t.getPageLink(menulink)
+        !=t.getLink('https://fr-fr.facebook.com/lapetitesymphonie', 'title-facebook', true)
         if (admin)
           !=t.getPageLink('admin')
 
@@ -39,36 +40,12 @@ html
       #footer
         #footer-content.align
           #footer-content-left
-              //div(id=cincopa) ...
-              //script(type='text/javascript', src='/data/js/musicplayer.js')
-              #jquery_jplayer_1.jp-jplayer
-              #jp_container_1.jp-audio(role='application', aria-label='media player')
-                .jp-type-playlist
-                  .jp-gui.jp-interface
-                    .jp-controls
-                      button.jp-previous(role='button', tabindex='0')
-                      button.jp-play(role='button', tabindex='0')
-                      button.jp-next(role='button', tabindex='0')
-                    .jp-in-progress
-                      .jp-progress
-                        .jp-seek-bar
-                          .jp-play-bar
-                      .jp-time-holder
-                        .jp-current-time(role='timer', aria-label='time')  
-                        .jp-duration(role='timer', aria-label='duration')  
-                    .jp-volume-controls
-                      button.jp-mute(role='button', tabindex='0')
-                      //button.jp-volume-max(role='button', tabindex='0')
-                    .jp-volume-bar
-                      .jp-volume-bar-value
-                  .jp-playlist
-                    ul
-                      li  
-                  .jp-no-solution
-                    span Update Required
-                    |       To play the media you will need to either update your browser to a recent version or update your 
-                    a(href='http://get.adobe.com/flashplayer/', target='_blank') Flash plugin
-                    | .
+            b Avec le soutien de
+            .align-v(style='margin-top:6px')
+                a(href='http://www.normandie.fr/', target='_blank')
+                  img(src='/data/img/logo/logo_region.jpg', height='81' style='margin-right:11px')
+                a(href='http://www.seinemaritime.net/', target='_blank', style='margin-left: 8px')
+                  img(src='/data/img/logo/logo_departement.jpg', width='60')
           #footer-content-right
             form.align-v.newsletterform(method='post', action='/Newsletter', onsubmit='return SubmitForm(this)')
               .align-reset-l
@@ -76,15 +53,6 @@ html
               .align-reset-l
                 input.newslettertextinput(type='text', name='newsletter_suscribe', placeholder="Saisir votre e-mail")
                 input.newlettersubmit(type='submit', name='newsletter_submit', value="S'inscrire")
-            .align-v
-                a(href='https://fr-fr.facebook.com/lapetitesymphonie', target='_blank')
-                  img(src='/data/img/logo/facebook.png', width='50px')
-                a(href='https://www.youtube.com/channel/UCuyhbW3_crRji7AoBBq1dNw/videos', target='_blank')
-                  img(src='/data/img/logo/youtube.png', width='90px')
-                a(href='http://www.hautenormandie.fr/', target='_blank')
-                  img(src='/data/img/logo/logo_region.jpg', width='50' style='margin-right:11px')
-                a(href='http://www.seinemaritime.net/', target='_blank')
-                  img(src='/data/img/logo/logo_departement.jpg', width='60')
       #footbot
         p Copyright © 2016 Hlkz
 
@@ -94,4 +62,5 @@ html
           button(name='adminDeco', value='y', type='submit') Déconnexion
         a(href='/Admin') Administration
 
-      script(src='/data/build/js/jplayer1.min.js')
+    script(src='/data/build/js/jplayer2.min.js')
+    script(src='/data/build/js/jplayer3.min.js')
