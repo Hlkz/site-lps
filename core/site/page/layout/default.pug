@@ -22,8 +22,11 @@ html
   body
     #loading-screen
     #full-screen(style='display:none')
-      a(href='/')
-        img.header.loadpage(src='/data/img/header.jpg', page-path='/')
+      .header
+        .lang-opt-spacer
+        img.header-logo.loadpage(src='/data/img/header.jpg', page-path='/')
+        .lang-opt
+          !=t.getSwapLangLink()
 
       ul.nav
         each menulink in menulinks
