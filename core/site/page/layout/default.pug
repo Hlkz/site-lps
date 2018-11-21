@@ -15,7 +15,6 @@ html
       ul.nav
         each menulink in menulinks
           !=t.getPageLink(menulink)
-        !=t.getLink('https://fr-fr.facebook.com/lapetitesymphonie', 'title-facebook', true)
         if (admin)
           !=t.getPageLink('admin')
 
@@ -28,12 +27,17 @@ html
       #footer
         #footer-content.align
           #footer-content-left
-            b Avec le soutien de
+            span
+              b L’association La Petite Symphonie est membre du groupement d’employeurs
+              .img-solstice
             .align-v(style='margin-top:6px')
-                a(href='http://www.normandie.fr/', target='_blank')
-                  img(src='/data/img/logo/logo_region.jpg', height='81' style='margin-right:11px')
-                a(href='http://www.seinemaritime.net/', target='_blank', style='margin-left: 8px')
-                  img(src='/data/img/logo/logo_departement.jpg', width='60')
+              b Avec le concours de :
+              a(href='http://www.normandie.fr/', target='_blank' style="margin: 0 8px")
+                img(src='/data/img/logo/logo_region.jpg', height='74')
+              a(href='http://www.seinemaritime.net/', target='_blank', style='margin: 0 8px')
+                img(src='/data/img/logo/logo_departement.jpg', height='74')
+              //- a(href='http://www.seinemaritime.net/', target='_blank', style='margin-left: 8px')
+              img(src='/data/img/logo/spedidam.png', height='74', style='margin-left: 8px')
           #footer-content-right
             form.align-v.newsletterform(method='post', action='/Newsletter', onsubmit='return SubmitForm(this)')
               .align-reset-l
@@ -41,6 +45,8 @@ html
               .align-reset-l
                 input.newslettertextinput(type='text', name='newsletter_suscribe', placeholder="Saisir votre e-mail")
                 input.newlettersubmit(type='submit', name='newsletter_submit', value="S'inscrire")
+          a.facebook(href='https://fr-fr.facebook.com/lapetitesymphonie', target='_blank')
+            img(src='/data/img/logo/facebook.png')
       #footbot
         p Copyright © 2016 Hlkz
 

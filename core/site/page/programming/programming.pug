@@ -1,0 +1,31 @@
+
+.main-content
+  #lmenu.align-reset-h
+    li
+      b Programmes
+    br
+    //- tempète
+    li: !=t.getPageLink('program1')
+    //- flûte
+    li: !=t.getPageLink('program6')
+    //- mer
+    li: !=t.getPageLink('program2')
+    //- romantisme
+    li: !=t.getPageLink('program3')
+    br
+    li
+      b Programmes romantiques
+    //- beethoven
+    li: !=t.getPageLink('program5')
+    //- sentinelle
+    li: !=t.getPageLink('program4')
+    br
+    li
+      b A venir
+    //- belle et la bête
+    li: !=t.getPageLink('program7')
+         
+  .page-content.align
+    .content-box
+      img(src='/data/img/programs/Photo programme tempête et passion.jpg', width='300px;', style='float:right; margin-left:18px;')
+      !=t.pug('maintext')
