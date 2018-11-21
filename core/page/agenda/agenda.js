@@ -3,8 +3,8 @@ import db from '../../../njb/database'
 
 function Load(req, res, isContent) { return new Promise((resolve, reject) => {
   let agenda = []
-  let locale = req.locale
-  db.query('SELECT id, date, ?? AS text, ?? AS text2 FROM lps_agenda WHERE date < CURRENT_DATE() ORDER BY date DESC',
+  let locale = req.njb_locale
+  db.query('SELECT id, date, ?? AS text, ?? AS text2, link FROM lps_agenda WHERE date >= CURRENT_DATE() ORDER BY date ASC',
     locale.locField('text_en', 'text'), locale.locField('text2_en', 'text2'),
     function(err, rows) {
     if (!err) {
@@ -16,6 +16,7 @@ function Load(req, res, isContent) { return new Promise((resolve, reject) => {
           date: dateHTML,
           text: common.textToHTML(event['text']),
           text2: common.textToHTML(event['text2']),
+          link: event['link']
         })
       })
     }
@@ -47,10 +48,14 @@ style.
           a(href='admin/agenda?delete_event_id='+event.id)  Delete
         br
         !=event.text
-        - if (event.text2 != '')
+        - if (event.text2 != '' || event.link != '')
           div(id='agenda-toggle-'+event.id).hidden
-            br
-            !=event.text2
+            - if (event.text2 != '')
+              br
+              !=event.text2
+            - if (event.link != '')
+              br
+              !=t.getLink(event.link, 'organizer-website', true)
           br
           !=t.getToggleDivLink('agenda-toggle-'+event.id, 'readmore', 'reduce')
 `

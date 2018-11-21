@@ -1,5 +1,5 @@
-import { CorePath } from '../../../njb/path'
-let config = require(CorePath+'/site/config/config.json')
+import { CorePath, ConfigPath } from '../../../njb/path'
+let config = require(ConfigPath)
 
 function Load(req, res, isContent) { return new Promise((resolve, reject) => {
   if (req.body.adminDeco) {

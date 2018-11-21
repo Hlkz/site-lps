@@ -3,10 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "babel core -d build --presets es2015 --ignore core/njb/script/*,core/site/apps/*,core/site/script/*",
+    "build-core": "babel server.js -d build --presets es2015 && babel core -d build/core --presets es2015 --ignore core/apps/*,core/script/*",
+    "build-njb": "babel njb -d build/njb --presets es2015 --ignore njb/script/*",
+    "build": "npm run build-core && npm run build-njb",
     "server": "node build/server.js",
     "s": "npm run build && npm run server",
-    "start": "nodemon ./core/server.js -e js,json --exec babel-node --presets es2015 --ignore core/njb/script/*,core/site/apps/*,core/site/script/*"
+    "start": "nodemon server.js -e js,json --exec babel-node --presets es2015 --ignore njb/script/*,core/apps/*,core/script/*"
   },
   "dependencies": {
     "autobind-decorator": "^1.3.4",
