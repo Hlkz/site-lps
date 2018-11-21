@@ -1,0 +1,8 @@
+{
+  "@context": "http://schema.org",
+  "@type": "MusicGroup",
+  "image": [
+    "http://lapetitesymphonie.eu/data/img/pages/lps.jpg"
+  ],
+  "name": "La Petite Symphonie"
+}
