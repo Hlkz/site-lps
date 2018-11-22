@@ -25,30 +25,27 @@ html
       #page-hidden(style='display:none')
 
       #footer
-        #footer-content.align
-          #footer-content-left
-            span
-              b L’association La Petite Symphonie est membre du groupement d’employeurs
-              .img-solstice
-            .align-v(style='margin-top:6px')
-              b Avec le concours de :
-              a(href='http://www.normandie.fr/', target='_blank' style="margin: 0 8px")
-                img(src='/data/img/logo/logo_region.jpg', height='74')
-              a(href='http://www.seinemaritime.net/', target='_blank', style='margin: 0 8px')
-                img(src='/data/img/logo/logo_departement.jpg', height='74')
-              //- a(href='http://www.seinemaritime.net/', target='_blank', style='margin-left: 8px')
-              img(src='/data/img/logo/spedidam.png', height='74', style='margin-left: 8px')
-          #footer-content-right
-            form.align-v.newsletterform(method='post', action='/Newsletter', onsubmit='return SubmitForm(this)')
-              .align-reset-l
-                b Newsletter de La Petite Symphonie
-              .align-reset-l
-                input.newslettertextinput(type='text', name='newsletter_suscribe', placeholder="Saisir votre e-mail")
-                input.newlettersubmit(type='submit', name='newsletter_submit', value="S'inscrire")
+        .footer-row
+          form.flexc.newsletterform(method='post', action='/Newsletter', onsubmit='return SubmitForm(this)')
+            b.align-left Newsletter de La Petite Symphonie
+            .flexrc
+              input.newslettertextinput(type='text', name='newsletter_suscribe', placeholder="Saisir votre e-mail")
+              input.newlettersubmit(type='submit', name='newsletter_submit', value="S'inscrire")
           a.facebook(href='https://fr-fr.facebook.com/lapetitesymphonie', target='_blank')
             img(src='/data/img/logo/facebook.png')
+        .footer-row
+          span
+            b L’association La Petite Symphonie est membre du groupement d’employeurs
+            .img-solstice
+            b avec le concours de
+            a.align-middle(href='http://www.normandie.fr/', target='_blank' style="margin: 0 4px")
+              img.align-middle(src='/data/img/logo/logo_region.jpg', height='60')
+            a.align-middle(href='http://www.seinemaritime.net/', target='_blank', style='margin: 0 4px')
+              img.align-middle(src='/data/img/logo/logo_departement.jpg', height='60')
+            //- a(href='http://www.seinemaritime.net/', target='_blank', style='margin-left: 4px')
+            img.align-middle(src='/data/img/logo/spedidam.png', height='60', style='margin-left: 4px')
       #footbot
-        p Copyright © 2016 Hlkz
+        p Copyright © 2018 Hlkz
 
       - if (admin)
         form(action='Admin', method='post')

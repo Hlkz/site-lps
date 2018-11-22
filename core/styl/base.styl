@@ -99,11 +99,15 @@ body
   width 100%
   min-width $minwidth
   //min-height 170px
-  max-height 170px // 164
+  // max-height 170px // 164
   text-align center
   margin 50px auto 0px auto
   background-color $main-color
   overflow hidden
+  display flex
+  flex-direction column
+  align-items center
+  padding 8px 0 10px
 #footer-content
   margin 0px auto
   width 1100px
@@ -120,6 +124,11 @@ body
   margin-left 24px
   padding 10px
   width 360px
+.footer-row
+  display flex
+  max-width calc(100% - 40px)
+  
+  
 
 #footbot
   margin 0px auto
@@ -185,7 +194,27 @@ body
   background-position center
   width 54px
   height 54px
-  margin 2px 0
-  margin-left 4px
+  margin 2px 4px
   vertical-align middle
 
+.imginbox
+  float right
+  margin 43px 0px 25px 25px
+  
+.flex
+  display flex
+  flex-direction row
+.flexrc
+  display flex
+  flex-direction row
+  justify-content center
+  align-items center
+.flexc
+  display flex
+  flex-direction column
+.w100
+  width 100%
+.align-left
+  text-align left
+.align-middle
+  vertical-align middle
