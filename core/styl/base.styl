@@ -127,6 +127,9 @@ body
 .footer-row
   display flex
   max-width calc(100% - 40px)
+  &:not(:first-child)
+    margin-top 5px
+    
   
   
 
@@ -183,8 +186,10 @@ body
 
 .facebook
   max-width 40px
-  margin-top 6px
+  height 40px
+  align-self flex-end
   margin-left 16px
+  margin-bottom 2px
 
 
 .img-solstice

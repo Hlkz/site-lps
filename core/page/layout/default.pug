@@ -26,7 +26,7 @@ html
 
       #footer
         .footer-row
-          form.flexc.newsletterform(method='post', action='/Newsletter', onsubmit='return SubmitForm(this)')
+          form.flexc(method='post', action='/Newsletter', onsubmit='return SubmitForm(this)')
             b.align-left Newsletter de La Petite Symphonie
             .flexrc
               input.newslettertextinput(type='text', name='newsletter_suscribe', placeholder="Saisir votre e-mail")
